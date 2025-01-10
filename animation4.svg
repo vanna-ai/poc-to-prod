@@ -1,0 +1,141 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 720">
+  <defs>
+    <style>
+      .message {
+        opacity: 0;
+      }
+      
+      .message1 { animation: messageAnim 10s linear infinite; animation-delay: 0s; }
+      .message2 { animation: messageAnim 10s linear infinite; animation-delay: 2s; }
+      .message3 { animation: messageAnim 10s linear infinite; animation-delay: 4s; }
+      .message4 { animation: messageAnim 10s linear infinite; animation-delay: 0s; }
+      .message5 { animation: messageAnim 10s linear infinite; animation-delay: 2s; }
+      .message6 { animation: messageAnim 10s linear infinite; animation-delay: 4s; }
+      .message7 { animation: messageAnim 10s linear infinite; animation-delay: 6s; }
+      .message8 { animation: messageAnim 10s linear infinite; animation-delay: 8s; }
+      
+      @keyframes messageAnim {
+        0%, 100% { 
+          opacity: 0;
+          transform: translateX(20px);
+        }
+        10%, 90% {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+      
+      .chat-text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; }
+      .code { font-family: Consolas, Monaco, 'Courier New', monospace; }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="720" fill="#f0f0f0"/>
+  
+  <!-- Left Panel -->
+  <rect x="20" y="20" width="360" height="680" rx="10" fill="white" stroke="#ddd"/>
+  <text x="30" y="45" fill="#666" class="chat-text" font-size="14" font-weight="600">Without clarification</text>
+  
+  <!-- Right Panel -->
+  <rect x="420" y="20" width="360" height="680" rx="10" fill="white" stroke="#ddd"/>
+  <text x="430" y="45" fill="#666" class="chat-text" font-size="14" font-weight="600">With clarification</text>
+
+  <!-- Left Panel Content -->
+  <g transform="translate(30, 60)">
+    <!-- User Question -->
+    <g class="message message1">
+      <rect x="0" y="0" width="320" height="45" rx="20" fill="#e1e1e1"/>
+      <text x="15" y="28" class="chat-text" font-size="14">
+        Show me the top artists
+      </text>
+    </g>
+
+    <!-- SQL Query -->
+    <g class="message message2">
+      <rect x="0" y="55" width="320" height="150" rx="5" fill="#fee2e2"/>
+      <text x="10" y="75" class="code" font-size="11" fill="#991b1b">
+        <tspan x="10" y="75">SELECT artists.name,</tspan>
+        <tspan x="10" y="95">COUNT(*) as tracks</tspan>
+        <tspan x="10" y="115">FROM tracks</tspan>
+        <tspan x="10" y="135">JOIN artists ON artists.id = tracks.artist_id</tspan>
+        <tspan x="10" y="155">GROUP BY artists.id</tspan>
+        <tspan x="10" y="175">ORDER BY tracks DESC LIMIT 5</tspan>
+      </text>
+    </g>
+
+    <!-- Results -->
+    <g class="message message3">
+      <rect x="0" y="215" width="320" height="150" rx="5" fill="#fee2e2"/>
+      <text x="10" y="235" class="chat-text" font-size="11" fill="#991b1b">
+        <tspan x="10" y="235">Results (by track count):</tspan>
+        <tspan x="10" y="260">1. Iron Maiden (213 tracks)</tspan>
+        <tspan x="10" y="285">2. Led Zeppelin (185 tracks)</tspan>
+        <tspan x="10" y="310">3. Deep Purple (174 tracks)</tspan>
+        <tspan x="10" y="335">4. U2 (135 tracks)</tspan>
+        <tspan x="10" y="360">5. Metallica (129 tracks)</tspan>
+      </text>
+    </g>
+  </g>
+
+  <!-- Right Panel Content -->
+  <g transform="translate(430, 60)">
+    <!-- User Question -->
+    <g class="message message4">
+      <rect x="0" y="0" width="320" height="45" rx="20" fill="#e1e1e1"/>
+      <text x="295" y="28" class="chat-text" text-anchor="end" font-size="11" fill="#666">Assistant</text>
+      <text x="15" y="28" class="chat-text" font-size="14">
+        Show me the top artists
+      </text>
+    </g>
+
+    <!-- Clarification Question -->
+    <g class="message message5">
+      <rect x="0" y="55" width="320" height="110" rx="20" fill="#fff" stroke="#e1e1e1"/>
+      <text x="15" y="80" class="chat-text" font-size="13">
+        <tspan x="15" y="80">I can show you top artists based on:</tspan>
+        <tspan x="15" y="105">• Number of tracks</tspan>
+        <tspan x="15" y="130">• Total sales volume</tspan>
+        <tspan x="15" y="155">• Total revenue</tspan>
+      </text>
+    </g>
+
+    <!-- User Response -->
+    <g class="message message6">
+      <rect x="0" y="175" width="320" height="45" rx="20" fill="#e1e1e1"/>
+      <text x="295" y="203" class="chat-text" text-anchor="end" font-size="11" fill="#666">User</text>
+      <text x="15" y="203" class="chat-text" font-size="14">
+        By revenue please
+      </text>
+    </g>
+
+    <!-- SQL Query -->
+    <g class="message message7">
+      <rect x="0" y="230" width="320" height="190" rx="5" fill="#ecfdf5"/>
+      <text x="10" y="250" class="code" font-size="11" fill="#065f46">
+        <tspan x="10" y="250">SELECT</tspan>
+        <tspan x="10" y="270">  artists.name,</tspan>
+        <tspan x="10" y="290">  SUM(tracks.unit_price *</tspan>
+        <tspan x="10" y="310">      sales.quantity) AS total_revenue</tspan>
+        <tspan x="10" y="330">FROM artists</tspan>
+        <tspan x="10" y="350">JOIN tracks ON tracks.artist_id = artists.id</tspan>
+        <tspan x="10" y="370">JOIN sales ON sales.track_id = tracks.id</tspan>
+        <tspan x="10" y="390">GROUP BY artists.id</tspan>
+        <tspan x="10" y="410">ORDER BY total_revenue DESC LIMIT 5</tspan>
+      </text>
+    </g>
+
+    <!-- Results -->
+    <g class="message message8">
+      <rect x="0" y="430" width="320" height="150" rx="5" fill="#ecfdf5"/>
+      <text x="10" y="450" class="chat-text" font-size="11" fill="#065f46">
+        <tspan x="10" y="450">Results (by revenue):</tspan>
+        <tspan x="10" y="475">1. Queen ($2.1M)</tspan>
+        <tspan x="10" y="500">2. U2 ($1.8M)</tspan>
+        <tspan x="10" y="525">3. The Beatles ($1.7M)</tspan>
+        <tspan x="10" y="550">4. Metallica ($1.5M)</tspan>
+        <tspan x="10" y="575">5. The Rolling Stones ($1.4M)</tspan>
+      </text>
+    </g>
+  </g>
+</svg>

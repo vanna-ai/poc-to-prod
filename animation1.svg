@@ -1,0 +1,132 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 420">
+  <defs>
+    <style>
+      .message {
+        opacity: 0;
+      }
+      
+      .message1 {
+        animation: messageAnim 10s linear infinite;
+        animation-delay: 0s;
+      }
+      
+      .message2 {
+        animation: messageAnim 10s linear infinite;
+        animation-delay: 2s;
+      }
+      
+      .message3 {
+        animation: messageAnim 10s linear infinite;
+        animation-delay: 4s;
+      }
+      
+      .message4 {
+        animation: messageAnim 10s linear infinite;
+        animation-delay: 6s;
+      }
+      
+      .message5 {
+        animation: messageAnim 10s linear infinite;
+        animation-delay: 8s;
+      }
+      
+      @keyframes messageAnim {
+        0%, 100% { 
+          opacity: 0;
+          transform: translateX(20px);
+        }
+        10%, 90% {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+      
+      text {
+        font-size: 14px;
+      }
+      .code-text {
+        font-size: 12px;
+      }
+      
+      @media screen and (max-width: 600px) {
+        text {
+          font-size: 12px;
+        }
+        .code-text {
+          font-size: 10px;
+        }
+      }
+    </style>
+  </defs>
+
+  <!-- Background Panels -->
+  <rect width="800" height="420" fill="#f0f0f0"/>
+  <rect x="20" y="20" width="360" height="380" rx="10" fill="white" stroke="#ddd"/>
+  <rect x="420" y="20" width="360" height="380" rx="10" fill="white" stroke="#ddd"/>
+
+  <!-- Panel Labels -->
+  <text x="30" y="45" fill="#666" font-family="Arial">User Interface</text>
+  <text x="430" y="45" fill="#666" font-family="Arial">Training Data History</text>
+
+  <!-- User Interface Content -->
+  <g transform="translate(30, 60)">
+    <!-- User Query -->
+    <g class="message message1">
+      <rect x="0" y="0" width="240" height="40" rx="20" fill="#e1e1e1"/>
+      <text x="15" y="25" font-family="Arial">Show me total revenue by month</text>
+    </g>
+
+    <!-- Generated SQL -->
+    <g class="message message2">
+      <rect y="50" width="320" height="100" rx="5" fill="#e6ffe6"/>
+      <text font-family="monospace" fill="#006600" class="code-text">
+        <tspan x="10" y="70">SELECT DATE_FORMAT(order_date, '%Y-%m')</tspan>
+        <tspan x="10" y="90">AS month, SUM(price + tax) AS revenue</tspan>
+        <tspan x="10" y="110">FROM orders GROUP BY month</tspan>
+        <tspan x="10" y="130">✓ SQL Generated Successfully</tspan>
+      </text>
+    </g>
+
+    <!-- Review and Approve Section with Button -->
+    <g class="message message3">
+      <rect y="160" width="320" height="120" rx="5" fill="#e3f2fd"/>
+      <text x="10" y="180" font-family="Arial" fill="#0d47a1">Review Generated SQL</text>
+      <text x="10" y="200" font-family="Arial" fill="#0d47a1" class="code-text">
+        <tspan x="10" y="220">✓ Syntax is valid</tspan>
+        <tspan x="10" y="240">✓ Includes tax in revenue calculation</tspan>
+      </text>
+      <rect x="10" y="250" width="140" height="20" rx="10" fill="#4CAF50"/>
+      <text x="35" y="264" font-family="Arial" fill="white" class="code-text">Train Model</text>
+    </g>
+  </g>
+
+  <!-- Training Data History -->
+  <g transform="translate(430, 60)">
+    <!-- Previous Example -->
+    <g class="message message4">
+      <rect x="0" y="0" width="340" height="140" rx="5" fill="#f5f5f5"/>
+      <text x="10" y="25" font-family="Arial" fill="#666">Previous Training Example</text>
+      <text x="10" y="45" font-family="Arial" fill="#666" class="code-text">Prompt:</text>
+      <text x="20" y="65" font-family="Arial" fill="#666" class="code-text">"Calculate average order value"</text>
+      <text x="10" y="85" font-family="Arial" fill="#666" class="code-text">Completion:</text>
+      <text x="20" y="105" font-family="monospace" fill="#666" class="code-text">
+        <tspan x="20" y="105">SELECT AVG(price + tax) as avg_order</tspan>
+        <tspan x="20" y="120">FROM orders</tspan>
+      </text>
+    </g>
+
+    <!-- New Example -->
+    <g class="message message5">
+      <rect y="160" width="340" height="160" rx="5" fill="#e8f5e9"/>
+      <text x="10" y="185" font-family="Arial" fill="#2e7d32">Adding New Training Example ✓</text>
+      <text x="10" y="205" font-family="Arial" fill="#2e7d32" class="code-text">Prompt:</text>
+      <text x="20" y="225" font-family="Arial" fill="#2e7d32" class="code-text">"Show me total revenue by month"</text>
+      <text x="10" y="245" font-family="Arial" fill="#2e7d32" class="code-text">Completion:</text>
+      <text x="20" y="265" font-family="monospace" fill="#2e7d32" class="code-text">
+        <tspan x="20" y="265">SELECT DATE_FORMAT(order_date, '%Y-%m')</tspan>
+        <tspan x="20" y="280">AS month, SUM(price + tax) AS revenue</tspan>
+        <tspan x="20" y="295">FROM orders GROUP BY month</tspan>
+      </text>
+    </g>
+  </g>
+</svg>
