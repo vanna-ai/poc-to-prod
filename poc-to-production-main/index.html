@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vanna Enterprise Demos</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    .animate-fade-in {
+      animation: fadeIn 0.5s ease-in;
+    }
+    .mono-font {
+      font-family: 'Roboto Mono', monospace;
+    }
+  </style>
+</head>
+<body class="bg-gray-100 min-h-screen">
+  <!-- Main container with width control -->
+  <div class="max-w-4xl mx-auto px-4 py-12">
+    <h2 class="text-4xl font-bold text-center mb-10 text-gray-800 mono-font">Best practices: POC to Production</h2>
+    
+    <!-- New Categories Card -->
+    <div class="bg-white rounded-lg shadow-lg p-8 mb-20 animate-fade-in">
+      <div class="space-y-6 text-gray-700 text-lg leading-relaxed mono-font">
+        <p class="mb-6">When your POC gains users, there's a lot to consider.</p>
+        <div>
+          <span class="font-bold">Accuracy:</span>
+          Clarification, reference context, task breakdown, introspection, tool use, evaluations, human in the loop, error flagging, prompt-completion pairs
+        </div>
+        <div>
+          <span class="font-bold">Security:</span>
+          Rate limiting, role based access control, row level security, async i-o guardrailing
+        </div>
+        <div>
+          <span class="font-bold">Latency:</span>
+          Model optimization, token optimization, streaming, batching, caching
+        </div>
+        <div>
+          <span class="font-bold">Cost:</span>
+          Managing billing limits, API key management, staging projects, cost optimization, data management, model performance monitoring, model retraining, model deployment, customization, support
+        </div>
+      </div>
+    </div>
+
+    <h2 class="text-4xl font-bold text-center mb-10 text-gray-800 mono-font">Sample demos</h2>
+
+    <div class="bg-white rounded-lg shadow-lg p-8 mb-20 animate-fade-in">
+      <h2 class="text-2xl font-bold mb-6 text-gray-800 text-center mono-font">Guardrailing for content control</h2>
+      <div class="aspect-w-16 aspect-h-9">
+        <img src="animation7.svg" alt="Animation demonstrating content control" class="w-full h-full object-cover rounded"/>
+      </div>
+      <p class="mt-6 text-gray-700 text-lg leading-relaxed text-center mono-font">
+        Why this matters: Without content control, you aren't protected against malicious queries
+      </p>
+    </div>
+    <div class="bg-white rounded-lg shadow-lg p-8 mb-20 animate-fade-in">
+      <h2 class="text-2xl font-bold mb-6 text-gray-800 text-center mono-font">Error Reporting</h2>
+      <div class="aspect-w-16 aspect-h-9">
+        <img src="animation.svg" alt="Animation demonstrating error reporting" class="w-full h-full object-cover rounded"/>
+      </div>
+      <p class="mt-6 text-gray-700 text-lg leading-relaxed text-center mono-font">
+        Why this matters: Without user error flags, errors remain visible to an increasing audience
+      </p>
+    </div>
+    <div class="bg-white rounded-lg shadow-lg p-8 mb-20 animate-fade-in">
+      <h2 class="text-2xl font-bold mb-6 text-gray-800 text-center mono-font">Model Training</h2>
+      <div class="aspect-w-16 aspect-h-9">
+        <img src="animation1.svg" alt="Animation showing training feature" class="w-full h-full object-cover rounded"/>
+      </div>
+      <p class="mt-6 text-gray-700 text-lg leading-relaxed text-center mono-font">
+        Why this matters: Without ongoing training, the LLM rewrites SQL from scratch— costlier and less accurate
+      </p>
+    </div>
+    <div class="bg-white rounded-lg shadow-lg p-8 mb-20 animate-fade-in">
+      <h2 class="text-2xl font-bold mb-6 text-gray-800 text-center mono-font">Reference Context</h2>
+      <div class="aspect-w-16 aspect-h-9">
+        <img src="animation2.svg" alt="Animation showing reference context" class="w-full h-full object-cover rounded"/>
+      </div>
+      <p class="mt-6 text-gray-700 text-lg leading-relaxed text-center mono-font">
+        Why this matters: Without your private database context, LLMs miss nuances and make more errors 
+      </p>
+    </div>
+    <div class="bg-white rounded-lg shadow-lg p-8 mb-20 animate-fade-in">
+      <h2 class="text-2xl font-bold mb-6 text-gray-800 text-center mono-font">Problem Solving</h2>
+      <div class="aspect-w-16 aspect-h-9">
+        <img src="animation3.svg" alt="Animation showing problem solving" class="w-full h-full object-cover rounded"/>
+      </div>
+      <p class="mt-6 text-gray-700 text-lg leading-relaxed text-center mono-font">
+        Why this matters: Without database context or problem-solving prompts, LLMs struggle with imprecise user queries, leading to more errors
+      </p>
+    </div>
+    <div class="bg-white rounded-lg shadow-lg p-8 mb-20 animate-fade-in">
+      <h2 class="text-2xl font-bold mb-6 text-gray-800 text-center mono-font">Clarifying questions</h2>
+      <div class="aspect-w-16 aspect-h-9">
+        <img src="animation4.svg" alt="Animation showing clarification" class="w-full h-full object-cover rounded"/>
+      </div>
+      <p class="mt-6 text-gray-700 text-lg leading-relaxed text-center mono-font">
+        Why this matters: Without clarification, LLMs may misinterpret questions, leading users to see avoidable errors 
+      </p>
+    </div>
+    <div class="bg-white rounded-lg shadow-lg p-8 mb-20 animate-fade-in">
+      <h2 class="text-2xl font-bold mb-6 text-gray-800 text-center mono-font">Role based access control</h2>
+      <div class="aspect-w-16 aspect-h-9">
+        <img src="animation5.svg" alt="Animation showing RBAC" class="w-full h-full object-cover rounded"/>
+      </div>
+      <p class="mt-6 text-gray-700 text-lg leading-relaxed text-center mono-font">
+        Why this matters: Without RBAC, sensitive data is exposed
+      </p>
+    </div>
+    <div class="bg-white rounded-lg shadow-lg p-8 mb-20 animate-fade-in">
+      <h2 class="text-2xl font-bold mb-6 text-gray-800 text-center mono-font">Row level access control</h2>
+      <div class="aspect-w-16 aspect-h-9">
+        <img src="animation6.svg" alt="Animation showing RLAC" class="w-full h-full object-cover rounded"/>
+      </div>
+      <p class="mt-6 text-gray-700 text-lg leading-relaxed text-center mono-font">
+        Why this matters: Without RLAC, sensitive data is exposed
+      </p>
+    </div>
+    <div class="bg-white rounded-lg shadow-lg p-8 mb-20 animate-fade-in">
+      <h2 class="text-2xl font-bold mb-6 text-gray-800 text-center mono-font">Model optimization</h2>
+      <div class="aspect-w-16 aspect-h-9">
+        <img src="animation8.svg" alt="Animation showing model optimization" class="w-full h-full object-cover rounded"/>
+      </div>
+      <p class="mt-6 text-gray-700 text-lg leading-relaxed text-center mono-font">
+        Why this matters: Without model optimization, responses are more expensive and take longer
+      </p>
+    </div>
+    <div class="bg-white rounded-lg shadow-lg p-8 mb-20 animate-fade-in">
+      <h2 class="text-2xl font-bold mb-6 text-gray-800 text-center mono-font">Agent orchestration</h2>
+      <div class="aspect-w-16 aspect-h-9">
+        <img src="animation9.svg" alt="Animation showing agent orchestration" class="w-full h-full object-cover rounded"/>
+      </div>
+      <p class="mt-6 text-gray-700 text-lg leading-relaxed text-center mono-font">
+        Why it matters: Without agent orchestration, users get incomplete information
+      </p>
+    </div>
+  </div>
+</body>
+</html>

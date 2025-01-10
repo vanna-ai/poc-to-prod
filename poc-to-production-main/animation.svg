@@ -1,0 +1,129 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" preserveAspectRatio="xMidYMid meet">
+    <defs>
+        <style>
+            .message {
+                opacity: 0;
+            }
+            
+            .message1 {
+                animation: messageAnim 10s linear infinite;
+                animation-delay: 0s;
+            }
+            
+            .message2 {
+                animation: messageAnim 10s linear infinite;
+                animation-delay: 2s;
+            }
+            
+            .message3 {
+                animation: messageAnim 10s linear infinite;
+                animation-delay: 4s;
+            }
+            
+            .message4 {
+                animation: messageAnim 10s linear infinite;
+                animation-delay: 6s;
+            }
+            
+            .message5 {
+                animation: messageAnim 10s linear infinite;
+                animation-delay: 8s;
+            }
+            
+            @keyframes messageAnim {
+                0%, 100% { 
+                    opacity: 0;
+                    transform: translateX(20px);
+                }
+                10%, 90% {
+                    opacity: 1;
+                    transform: translateX(0);
+                }
+            }
+            
+            text {
+                font-size: 14px;
+            }
+            .code-text {
+                font-size: 12px;
+            }
+            
+            @media screen and (max-width: 600px) {
+                text {
+                    font-size: 12px;
+                }
+                .code-text {
+                    font-size: 10px;
+                }
+            }
+        </style>
+    </defs>
+
+    <!-- Background -->
+    <rect width="800" height="400" fill="#f0f0f0"/>
+    
+    <!-- UI Panel -->
+    <g transform="scale(0.95) translate(21, 21)">
+        <rect width="360" height="360" rx="10" fill="white" stroke="#ddd"/>
+        <text x="10" y="25" fill="#666" font-family="Arial">User Interface</text>
+        
+        <!-- User content group -->
+        <g transform="translate(10, 40)">
+            <g class="message message1">
+                <rect width="240" height="40" rx="20" fill="#e1e1e1"/>
+                <text x="15" y="25" font-family="Arial">Show me total revenue by month</text>
+            </g>
+            
+            <g class="message message2">
+                <rect y="50" width="320" height="100" rx="5" fill="#e6ffe6"/>
+                <text font-family="monospace" fill="#006600" class="code-text">
+                    <tspan x="10" y="70">SELECT DATE_FORMAT(order_date, '%Y-%m')</tspan>
+                    <tspan x="10" y="90">AS month, SUM(price) AS revenue</tspan>
+                    <tspan x="10" y="110">FROM orders GROUP BY month</tspan>
+                    <tspan x="10" y="130">Success: Results displayed below</tspan>
+                </text>
+            </g>
+            
+            <g class="message message3">
+                <rect y="160" width="320" height="80" rx="5" fill="#fff3e0"/>
+                <text font-family="Arial" fill="#663c00">
+                    <tspan x="10" y="180">Warning: Flag as Incorrect</tspan>
+                    <tspan x="10" y="205" font-size="12">Reason: Should include tax in revenue</tspan>
+                    <tspan x="10" y="225" font-size="12">Status: Flagged - Admin Notified</tspan>
+                </text>
+            </g>
+        </g>
+    </g>
+    
+    <!-- Admin Panel -->
+    <g transform="scale(0.95) translate(442, 21)">
+        <rect width="360" height="360" rx="10" fill="white" stroke="#ddd"/>
+        <text x="10" y="25" fill="#666" font-family="Arial">Admin Dashboard</text>
+        
+        <!-- Admin content group -->
+        <g transform="translate(10, 40)">
+            <g class="message message4">
+                <rect width="340" height="140" rx="5" fill="#fff3e0"/>
+                <text font-family="Arial" fill="#663c00">
+                    <tspan x="10" y="25">Query Flagged by User</tspan>
+                    <tspan x="10" y="50" class="code-text">Current Query:</tspan>
+                    <tspan x="10" y="70" class="code-text">SELECT DATE_FORMAT(order_date, '%Y-%m')</tspan>
+                    <tspan x="10" y="90" class="code-text">AS month, SUM(price) AS revenue</tspan>
+                    <tspan x="10" y="110" class="code-text">FROM orders GROUP BY month</tspan>
+                    <tspan x="10" y="130" class="code-text">Issue: Tax not included in revenue calc</tspan>
+                </text>
+            </g>
+            
+            <g class="message message5">
+                <rect y="150" width="340" height="140" rx="5" fill="#e3f2fd"/>
+                <text font-family="Arial" fill="#0d47a1">
+                    <tspan x="10" y="175">Correction Required</tspan>
+                    <tspan x="10" y="200" class="code-text">Updated Query:</tspan>
+                    <tspan x="10" y="220" class="code-text">SELECT DATE_FORMAT(order_date, '%Y-%m')</tspan>
+                    <tspan x="10" y="240" class="code-text">AS month, SUM(price + tax) AS revenue</tspan>
+                    <tspan x="10" y="260" class="code-text">FROM orders GROUP BY month</tspan>
+                </text>
+            </g>
+        </g>
+    </g>
+</svg>
